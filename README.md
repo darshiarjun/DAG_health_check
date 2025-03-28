@@ -20,11 +20,15 @@ To run this project, make sure you have the following installed:
 - pip3 (Python package installer)
 
 ## Installation
+
 - 1. Clone or download the repository:
+
  	- git clone https://github.com/darshiarjun/DAG_health_check.git
+
  	- cd Flask-DAG-Health-Checker
 
 - 2. Install dependencies:
+
  	- pip install -r requirements.txt
 
 	- The required dependencies include:
@@ -56,9 +60,11 @@ To run this project, make sure you have the following installed:
 
 
  	- GET /health_status_table: View the health status of all components in the system in a table format.
+
   		- Launch the browser and browse for http://localhost:8080/health_status_table
 
  	- GET /displaygraph: Visualize the graph, where failed components are highlighted in red.
+
   		- curl -H "Content-Type: application/json" http://localhost:8080/displaygraph
 
 - 3. Upload DAG File:
