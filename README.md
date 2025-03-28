@@ -72,5 +72,7 @@ To run this project, make sure you have the following installed:
 	}
 	
 - 4. Graph visualization:
+
   		- Calling /displaygraph endpoint will display the graph where failed nodes are marked in red and working nodes are in green.
+
   		- Usage is mentioned above.
