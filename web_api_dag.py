@@ -3,8 +3,11 @@ import networkx as nx                                             #Importing fla
 import asyncio                                                    #Importing asyncio for asynchronous calls
 import json
 import random
-# import matplotlib.pyplot as plt                                 #Importing matplotlib for creating images
-# from io import BytesIO
+import matplotlib
+matplotlib.use('agg')
+import matplotlib.pyplot as plt                                 #Importing matplotlib for creating images
+
+from io import BytesIO
 import pandas as pd                                               #Importing pandas for creating dataframe of health results
 from collections import deque                                     #Importing deque for
 import argparse
@@ -96,23 +99,23 @@ def get_health_status_as_table():
     # Render the health_status DataFrame as an HTML table
 	return render_template("health_status.html",tables=[health_status.to_html(classes="table table-bordered")])
 
-
-# @app.route("/displaygraph", methods=["GET"])
-# def displaygraph():
-#     pos = nx.spring_layout(graph)
-#     colors = []
-#     for node in graph.nodes:
-#       health = health_status.loc[health_status['Component'] == node, "Health"].values[0]
-#       if health == "failed":
-#         colors.append("red")
-#       else:
-#         colors.append("green")
-#     plt.figure(figsize=(8, 6))
-#     nx.draw(graph, pos, with_labels=True, node_color=colors, edge_color="black", node_size=3000, font_size=10)
-#     buf = BytesIO()
-#     plt.savefig(buf, format="png")
-#     buf.seek(0)
-#     return send_file(buf, mimetype="image/png")
+# This GET api is used to get the image of the health status of nodes
+@app.route("/displaygraph", methods=["GET"])
+def displaygraph():
+    pos = nx.spring_layout(graph)
+    colors = []
+    for node in graph.nodes:
+      health = health_status.loc[health_status['Component'] == node, "Health"].values[0]
+      if health == "failed":
+        colors.append("red")
+      else:
+        colors.append("green")
+    plt.figure(figsize=(10, 8))
+    nx.draw(graph, pos, with_labels=True, node_color=colors, edge_color="black", node_size=3000, font_size=10)
+    buf = BytesIO()
+    plt.savefig(buf, format="png")
+    buf.seek(0)
+    return send_file(buf, mimetype="image/png")
 
 if __name__ == "__main__":
     # Creating the data frame with columns "Component" and "Health to hold node and health values"

@@ -65,7 +65,7 @@ To run this project, make sure you have the following installed:
 
  	- GET /displaygraph: Visualize the graph, where failed components are highlighted in red.
 
-  		- curl -H "Content-Type: application/json" http://localhost:8080/displaygraph
+  		- curl -H "Content-Type: application/json" http://localhost:8080/displaygraph --output image.png
 
 - 3. Upload DAG File:
 
