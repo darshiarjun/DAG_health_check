@@ -17,7 +17,7 @@ To run this project, make sure you have the following installed:
 
 - Python 3.x
 
-- pip3 (Python package installer)
+- pip3/pip (Python package installer)
 
 ## Installation
 
@@ -29,7 +29,7 @@ To run this project, make sure you have the following installed:
 
 - 2. Install dependencies:
 
- 	- pip install -r requirements.txt
+ 	- pip3 install -r requirements.txt or pip install -r requirements.txt
 
 	- The required dependencies include:
 
